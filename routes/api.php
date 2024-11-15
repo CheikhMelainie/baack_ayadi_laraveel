@@ -27,3 +27,7 @@ Route::get('/test-api', function () {
 Route::get('/get-session-id', [TransactionController::class, 'getSessionId']);
 Route::post('/transaction/create', [TransactionController::class, 'createTransaction']);
 
+Route::get('/test-transaction-form', function () {
+    return view('test-transaction-form');
+});
+

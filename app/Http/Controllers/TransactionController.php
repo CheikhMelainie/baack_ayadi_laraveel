@@ -44,9 +44,9 @@ class TransactionController extends Controller
             $brand = $request->input('brand', 'bmci');
             $purchaseRef = $request->input('purchase_ref', '784512456745');
             $phoneNumber = $request->input('phonenumber');
-            $acceptUrl = $request->input('accepturl', 'https://165.227.85.96/ayadi/payment/success/');
-            $declineUrl = $request->input('declineurl', 'https://165.227.85.96/ayadi/payment/decline/');
-            $cancelUrl = $request->input('cancelurl', 'https://165.227.85.96/ayadi/payment/cancel/');
+            $acceptUrl = $request->input('accepturl', 'https://165.227.85.96:81/api/payment/success/');
+            $declineUrl = $request->input('declineurl', 'https://165.227.85.96:81/api/payment/decline/');
+            $cancelUrl = $request->input('cancelurl', 'https://165.227.85.96:81/api/payment/cancel/');
             $text = $request->input('text', 'Thank you for your purchase');
 
             // Multiply the amount by 100
@@ -55,7 +55,7 @@ class TransactionController extends Controller
             }
 
             // API call to retrieve the session ID
-            $sessionResponse = Http::get('https://165.227.85.96/ayadi/get-session-id/');
+            $sessionResponse = Http::get('https://165.227.85.96:81/api/get-session-id/');
             
             if ($sessionResponse->successful()) {
                 $sessionId = $sessionResponse->json()['session_id'] ?? null;

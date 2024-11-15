@@ -21,3 +21,8 @@ Route::get('/test', function () {
     return view('test');
 });
 
+Route::get('/test-transaction-form', function () {
+    return view('test-transaction-form');
+});
+
+
